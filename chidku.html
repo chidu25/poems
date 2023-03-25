@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+       background-image: url('https://cdn.wallpapersafari.com/34/3/1v76fr.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      font-family: 'High Tower Text', serif;
+      text-align: center;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+    
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    #next-poem-btn {
+      background-color: #522206;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    
+#next-poem-btn {
+  color: black;
+}
+
+
+    #next-poem-btn:hover {
+      background-color: #522206;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <p id="poem"></p>
+    <button id="next-poem-btn">🔁</button>
+  </div>
+
+  <script>
+    // Define an array of poems
+    var poems = [
+      "we are. anahata",
+      "what to do to know what to do",
+      "the 108 of your being in mine",
+      "renting my yesterdays to a fantasy",
+      "DNA i shed my responsibility",
+      "between response & stimuli being human",
+      "signing into life where do I authenticate",
+      "prayer who asks whom",
+      "pitch perfect the sound of healing",
+      "a chant without the memory of meaning",
+      "giving up my volition ocean waves"
+    ];
+
+    // Define a variable to keep track of the last displayed poem
+    var lastPoemIndex = -1;
+
+    // Get a random poem from the array and display it
+    function displayRandomPoem() {
+      var poemIndex = Math.floor(Math.random() * poems.length);
+      while (poemIndex == lastPoemIndex) {
+        poemIndex = Math.floor(Math.random() * poems.length);
+      }
+      lastPoemIndex = poemIndex;
+      document.getElementById("poem").innerHTML = poems[poemIndex];
+    }
+
+    // Display a random poem when the page loads
+    displayRandomPoem();
+
+    // Add an event listener to the "Get Next Poem" button
+    document.getElementById("next-poem-btn").addEventListener("click", displayRandomPoem);
+  </script>
+</body>
+
+</html>
